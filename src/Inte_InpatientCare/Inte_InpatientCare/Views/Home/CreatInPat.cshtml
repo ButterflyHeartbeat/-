@@ -1,0 +1,63 @@
+﻿@model InPatCreatViewModel
+    <form enctype="multipart/form-data" asp-action="CreatInPat" asp-controller="Home" method="post">
+
+        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+        <div class="form-group row">
+            <label asp-for="Name" class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="輸入姓名" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Sex" class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <select asp-for="Sex" asp-items="Html.GetEnumSelectList<SexEnum>()" class="custom-select mr-sm-2">
+                    <option value="">請選擇</option>
+                </select>
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="InPatCard" class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <input asp-for="InPatCard" class="form-control" />
+                <span asp-validation-for="InPatCard" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Chaperone" class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <input asp-for="Chaperone" class="form-control" />
+                <span asp-validation-for="InPatCard" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Photo" class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <div class="custom-file">
+                    <input asp-for="Photo" class="form-control custom-file-input" />
+                    <label class="custom-file-label">请选择照片</label>
+                </div> 
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">添加患者</button>
+
+        @section Script{ 
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".custom-file-input").on("change", function () {
+                        console.log($(this).val());
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).next(".custom-file-label").text(fileName);
+                    })
+                    })
+            </script>
+        }
+    </form>

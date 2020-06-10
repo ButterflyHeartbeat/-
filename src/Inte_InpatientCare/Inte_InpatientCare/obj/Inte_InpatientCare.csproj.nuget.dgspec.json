@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {}
+  },
+  "projects": {
+    "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
+        "projectName": "Inte_InpatientCare",
+        "projectPath": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
+        "packagesPath": "C:\\Users\\hqc\\.nuget\\packages\\",
+        "outputPath": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hqc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://122.228.70.21:8504/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

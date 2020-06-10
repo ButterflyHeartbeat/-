@@ -1,0 +1,23 @@
+﻿@model InPatient
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top" src="~/Images/tx1.jpg" />
+                <h4>患者ID：@Model.ID</h4>
+                @*<h4>患者姓名：@Model.Name</h4>*@
+                <h4>患者性别：@Model.Sex</h4>
+                <h4>患者住院号：@Model.InPatCard</h4>
+                <h4>患者陪护：@Model.Chaperone</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="InPatList" asp-controller="Home" class="btn btn-primary">返回</a>
+                <a class="btn btn-info">编辑</a>
+                <a class="btn btn-danger">删除</a>
+            </div>
+        </div>
+    </div>
+</div>
