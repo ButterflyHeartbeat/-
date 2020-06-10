@@ -3,14 +3,16 @@ using Inte_InpatientCare.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inte_InpatientCare.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200610130235_updateSexEnumInt")]
+    partial class updateSexEnumInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +38,8 @@ namespace Inte_InpatientCare.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Photo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -49,14 +51,16 @@ namespace Inte_InpatientCare.Migrations
                             ID = 11,
                             Chaperone = "毛",
                             InPatCard = "16122315",
-                            Name = "闫高伟"
+                            Name = "闫高伟",
+                            Sex = 1
                         },
                         new
                         {
                             ID = 12,
                             Chaperone = "烟",
                             InPatCard = "16122315",
-                            Name = "毛子轩"
+                            Name = "毛子轩",
+                            Sex = 1
                         });
                 });
 #pragma warning restore 612, 618

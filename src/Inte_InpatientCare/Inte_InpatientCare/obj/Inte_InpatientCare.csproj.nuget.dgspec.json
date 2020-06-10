@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {}
+    "F:\\KL\\Files\\My_Try\\ASP.NET_Core\\Inte_InPatSys\\-\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {}
   },
   "projects": {
-    "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {
+    "F:\\KL\\Files\\My_Try\\ASP.NET_Core\\Inte_InPatSys\\-\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
+        "projectUniqueName": "F:\\KL\\Files\\My_Try\\ASP.NET_Core\\Inte_InPatSys\\-\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
         "projectName": "Inte_InpatientCare",
-        "projectPath": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
-        "packagesPath": "C:\\Users\\hqc\\.nuget\\packages\\",
-        "outputPath": "D:\\银医自助\\5.项目编码\\后台管理\\智能住院陪护管理系统\\1\\src\\Inte_InpatientCare\\Inte_InpatientCare\\obj\\",
+        "projectPath": "F:\\KL\\Files\\My_Try\\ASP.NET_Core\\Inte_InPatSys\\-\\src\\Inte_InpatientCare\\Inte_InpatientCare\\Inte_InpatientCare.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\KL\\Files\\My_Try\\ASP.NET_Core\\Inte_InPatSys\\-\\src\\Inte_InpatientCare\\Inte_InpatientCare\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hqc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://122.228.70.21:8504/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,6 +63,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

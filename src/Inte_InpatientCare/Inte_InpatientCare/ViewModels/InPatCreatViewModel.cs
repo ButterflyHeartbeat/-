@@ -14,9 +14,9 @@ namespace Inte_InpatientCare.ViewModels
         [Required]
         [Display(Name = "姓名")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "不可以爲空"), MinLength(0)]
-        [Display(Name = "性别")]
-        public SexEnum? Sex { get; set; }
+        //[Required(ErrorMessage = "不可以爲空"), MinLength(0)]
+        //[Display(Name = "性别")]
+        //public SexEnum? Sex { get; set; }
         [Required(ErrorMessage = "不可謂空")]
         [Display(Name = "住院号")]
         /// <summary>

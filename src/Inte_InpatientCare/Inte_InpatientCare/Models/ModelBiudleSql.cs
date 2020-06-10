@@ -14,7 +14,7 @@ namespace Inte_InpatientCare.Models
             {
                 ID=11,
                 Name="闫高伟",
-                Sex=SexEnum.男,
+                //Sex=SexEnum.男,
                 InPatCard="16122315",
                 Chaperone="毛"
             },
@@ -22,7 +22,7 @@ namespace Inte_InpatientCare.Models
             {
                 ID = 12,
                 Name = "毛子轩",
-                Sex = SexEnum.男,
+                //Sex = SexEnum.男,
                 InPatCard = "16122315",
                 Chaperone = "烟"
             }

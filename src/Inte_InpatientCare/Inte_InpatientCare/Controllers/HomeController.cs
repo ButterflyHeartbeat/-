@@ -55,23 +55,33 @@ namespace Inte_InpatientCare.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var inP = _inPatM.AddInPat(inPatient);
+
+                //var inP = _inPatM.AddInPat(new InPatient
+                //{
+                //    ID = inPatModel.ID,
+                //    Name = inPatModel.Name,
+                //    //Sex =inPatModel.Sex,
+                //    InPatCard = inPatModel.InPatCard,
+                //    Chaperone = inPatModel.Chaperone
+                //});
                 //return RedirectToAction("InPatInfo", new { id = inP.ID });
 
                 string UpFilesNames = null;
-                if (inPatModel.Photo!=null)
+                if (inPatModel.Photo != null)
                 {
-                    string strFiles = Path.Combine(_webHostEnvironment.WebRootPath,"images");
+                    string strFiles = Path.Combine(_webHostEnvironment.WebRootPath, "images");
                     UpFilesNames = Guid.NewGuid().ToString() + "_" + inPatModel.Photo.FileName;
-                    string QueFilePath = Path.Combine(strFiles, "\\"+UpFilesNames);
+                    string QueFilePath = Path.Combine(strFiles,UpFilesNames);
                     inPatModel.Photo.CopyTo(new FileStream(QueFilePath, FileMode.Create));
                 }
-                var inP = _inPatM.AddInPat(new InPatient { 
-                ID= inPatModel.ID,
-                Name=inPatModel.Name,
-                Sex=inPatModel.Sex,
-                InPatCard=inPatModel.InPatCard,
-                Chaperone=inPatModel.Chaperone
+                var inP = _inPatM.AddInPat(new InPatient
+                {
+                    ID = inPatModel.ID,
+                    Name = inPatModel.Name,
+                    //Sex = inPatModel.Sex,
+                    InPatCard = inPatModel.InPatCard,
+                    Chaperone = inPatModel.Chaperone,
+                    Photo= UpFilesNames
                 });
                 return RedirectToAction("InPatInfo", new { id = inP.ID });
             }

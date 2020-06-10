@@ -1,15 +1,17 @@
 ﻿@model HomeInPatListViewModel
 @{
     ViewBag.Title = "住院患者列表";
+   
 }
 <div class="card-deck">
     @foreach (var item in Model.InPatData)
     {
+        var photo = "~/Images/" + (@item.Photo?? "tx1.jpg");
     <div class="card m-3">
         <div class="card-header">
             <h3>@item.Name</h3>
         </div>
-        <img src="~/Images/tx1.jpg" class="card-img-top" asp-append-version="true" />
+        <img src="@photo" class="card-img-top imgphotosite" asp-append-version="true" />
         <div class="card-footer text-center">
             <a asp-route-id="@item.ID" asp-controller="Home" asp-action="InPatInfo" class="btn btn-primary m-1">查看</a>
             <a asp-route-id="@item.ID" asp-controller="Home" asp-action="InPatDetails" class="btn btn-info m-1">編輯</a>

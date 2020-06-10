@@ -1,4 +1,7 @@
 ﻿@model InPatient
+@{ 
+    var photo = "~/Images/"+(Model.Photo??"tx1.jpg");
+}
 <div class="row justify-content-center m-3">
     <div class="col-sm-8">
         <div class="card">
@@ -6,10 +9,10 @@
                 <h1>@Model.Name</h1>
             </div>
             <div class="card-body text-center">
-                <img class="card-img-top" src="~/Images/tx1.jpg" />
+                <img class="card-img-top" src="@photo" asp-append-version="true"/>
                 <h4>患者ID：@Model.ID</h4>
                 @*<h4>患者姓名：@Model.Name</h4>*@
-                <h4>患者性别：@Model.Sex</h4>
+                @*<h4>患者性别：@Model.Sex</h4>*@
                 <h4>患者住院号：@Model.InPatCard</h4>
                 <h4>患者陪护：@Model.Chaperone</h4>
             </div>
