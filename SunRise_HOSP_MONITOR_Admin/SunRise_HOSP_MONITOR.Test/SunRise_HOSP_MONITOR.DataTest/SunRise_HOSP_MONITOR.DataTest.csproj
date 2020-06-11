@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Business\SunRise_HOSP_MONITOR.Service\SunRise_HOSP_MONITOR.Service.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data.EF\SunRise_HOSP_MONITOR.Data.EF.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data.Repository\SunRise_HOSP_MONITOR.Data.Repository.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Model\SunRise_HOSP_MONITOR.Model.csproj" />
+  </ItemGroup>
+
+</Project>

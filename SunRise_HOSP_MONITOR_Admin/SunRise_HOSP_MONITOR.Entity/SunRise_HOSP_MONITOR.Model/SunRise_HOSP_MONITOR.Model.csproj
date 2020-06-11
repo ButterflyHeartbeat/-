@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.Util.csproj" />
+    <ProjectReference Include="..\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Param\ToolManage\" />
+  </ItemGroup>
+
+</Project>

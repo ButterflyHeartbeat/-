@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Business\SunRise_HOSP_MONITOR.Business.Cache\SunRise_HOSP_MONITOR.Business.Cache.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data.Repository\SunRise_HOSP_MONITOR.Data.Repository.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Entity.csproj" />
+    <ProjectReference Include="..\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.Util.csproj" />
+  </ItemGroup>
+
+</Project>

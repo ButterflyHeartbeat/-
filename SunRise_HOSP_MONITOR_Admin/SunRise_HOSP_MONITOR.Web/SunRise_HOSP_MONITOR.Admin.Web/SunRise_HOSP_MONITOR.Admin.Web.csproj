@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
+    <Company>SunRise_HOSP_MONITOR.Admin.Web</Company>
+    <Authors>SunRise_HOSP_MONITOR.Admin.Web</Authors>
+    <Product>YiShaAdmin</Product>
+    <Copyright>YiShaAdmin</Copyright>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="dotnet_run.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.435" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Business\SunRise_HOSP_MONITOR.Business.AutoJob\SunRise_HOSP_MONITOR.Business.AutoJob.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Business\SunRise_HOSP_MONITOR.Business\SunRise_HOSP_MONITOR.Business.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Data\SunRise_HOSP_MONITOR.Data.EF\SunRise_HOSP_MONITOR.Data.EF.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Entity.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Entity\SunRise_HOSP_MONITOR.Model\SunRise_HOSP_MONITOR.Model.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.CodeGenerator\SunRise_HOSP_MONITOR.CodeGenerator.csproj" />
+    <ProjectReference Include="..\..\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.Util\SunRise_HOSP_MONITOR.Util.csproj" />
+    <ProjectReference Include="..\SunRise_HOSP_MONITOR.Web.Code\SunRise_HOSP_MONITOR.Web.Code.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\HospMonitorManage\" />
+  </ItemGroup>
+</Project>
