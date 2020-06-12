@@ -12,11 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\FileController.cs" />
-    <Compile Remove="Controllers\UserController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="dotnet_run.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

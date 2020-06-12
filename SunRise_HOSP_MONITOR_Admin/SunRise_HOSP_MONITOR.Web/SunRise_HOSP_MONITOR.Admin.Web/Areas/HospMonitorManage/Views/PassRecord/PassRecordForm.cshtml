@@ -5,21 +5,15 @@
 <div class="wrapper animated fadeInRight">
     <form id="form" class="form-horizontal m">
         <div class="form-group">
-            <label class="col-sm-3 control-label ">dtCheckIn<font class="red"> *</font></label>
+            <label class="col-sm-3 control-label ">sId<font class="red"> *</font></label>
             <div class="col-sm-8">
-                <input id="dtCheckIn" col="dtCheckIn" type="text" class="form-control" />
+                <input id="sId" col="sId" type="text" class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label ">nType</label>
             <div class="col-sm-8">
                 <input id="nType" col="nType" type="text" class="form-control" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label ">sPatientId</label>
-            <div class="col-sm-8">
-                <input id="sPatientId" col="sPatientId" type="text" class="form-control" />
             </div>
         </div>
     </form>
@@ -32,7 +26,7 @@
 
         $('#form').validate({
             rules: {
-                dtCheckIn: { required: true }
+                sId: { required: true }
             }
         });
     });
@@ -40,7 +34,7 @@
     function getForm() {
         if (id > 0) {
             ys.ajax({
-                url: '@Url.Content("~/HospMonitorManage/Test1/GetFormJson")' + '?id=' + id,
+                url: '@Url.Content("~/HospMonitorManage/PassRecord/GetFormJson")' + '?id=' + id,
                 type: 'get',
                 success: function (obj) {
                     if (obj.Tag == 1) {
@@ -59,7 +53,7 @@
         if ($('#form').validate().form()) {
             var postData = $('#form').getWebControls({ Id: id });
             ys.ajax({
-                url: '@Url.Content("~/HospMonitorManage/Test1/SaveFormJson")',
+                url: '@Url.Content("~/HospMonitorManage/PassRecord/SaveFormJson")',
                 type: 'post',
                 data: postData,
                 success: function (obj) {

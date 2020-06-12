@@ -17,34 +17,34 @@ namespace SunRise_HOSP_MONITOR.Service.HospMonitorManage
 {
     /// <summary>
     /// 创 建：admin
-    /// 日 期：2020-06-11 23:24
-    /// 描 述：服务类
+    /// 日 期：2020-06-12 16:44
+    /// 描 述：人员出入记录服务类
     /// </summary>
-    public class Test1Service :  RepositoryFactory
+    public class PassRecordService :  RepositoryFactory
     {
         #region 获取数据
-        public async Task<List<Test1Entity>> GetList(Test1ListParam param)
+        public async Task<List<PassRecordEntity>> GetList(PassRecordListParam param)
         {
             var expression = ListFilter(param);
             var list = await this.BaseRepository().FindList(expression);
             return list.ToList();
         }
 
-        public async Task<List<Test1Entity>> GetPageList(Test1ListParam param, Pagination pagination)
+        public async Task<List<PassRecordEntity>> GetPageList(PassRecordListParam param, Pagination pagination)
         {
             var expression = ListFilter(param);
             var list= await this.BaseRepository().FindList(expression, pagination);
             return list.ToList();
         }
 
-        public async Task<Test1Entity> GetEntity(long id)
+        public async Task<PassRecordEntity> GetEntity(long id)
         {
-            return await this.BaseRepository().FindEntity<Test1Entity>(id);
+            return await this.BaseRepository().FindEntity<PassRecordEntity>(id);
         }
         #endregion
 
         #region 提交数据
-        public async Task SaveForm(Test1Entity entity)
+        public async Task SaveForm(PassRecordEntity entity)
         {
             if (entity.Id.IsNullOrZero())
             {
@@ -61,14 +61,14 @@ namespace SunRise_HOSP_MONITOR.Service.HospMonitorManage
         public async Task DeleteForm(string ids)
         {
             long[] idArr = TextHelper.SplitToArray<long>(ids, ',');
-            await this.BaseRepository().Delete<Test1Entity>(idArr);
+            await this.BaseRepository().Delete<PassRecordEntity>(idArr);
         }
         #endregion
 
         #region 私有方法
-        private Expression<Func<Test1Entity, bool>> ListFilter(Test1ListParam param)
+        private Expression<Func<PassRecordEntity, bool>> ListFilter(PassRecordListParam param)
         {
-            var expression = LinqExtensions.True<Test1Entity>();
+            var expression = LinqExtensions.True<PassRecordEntity>();
             if (param != null)
             {
             }

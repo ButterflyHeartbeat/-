@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Param\HospMonitorManage\" />
     <Folder Include="Param\ToolManage\" />
   </ItemGroup>
 

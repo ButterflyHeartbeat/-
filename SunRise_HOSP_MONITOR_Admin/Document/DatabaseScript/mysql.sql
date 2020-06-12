@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `SysArea` (
   `ZipCode`             varchar(50)    NOT NULL     COMMENT '邮政编码',
   `AreaLevel`           int(11)        NOT NULL     COMMENT '地区层级(1省份 2城市 3区县)',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '中国省市县表';
+) ENGINE=InnoDB COMMENT '中国省市县表';
  
 DROP TABLE IF EXISTS `SysAutoJob`;
 CREATE TABLE IF NOT EXISTS `SysAutoJob` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `SysAutoJob` (
   `NextStartTime`		datetime		NOT NULL       COMMENT '下次执行时间',
   `Remark`				text			NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '定时任务表';
+) ENGINE=InnoDB COMMENT '定时任务表';
 
 DROP TABLE IF EXISTS `SysDataDict`;
 CREATE TABLE IF NOT EXISTS `SysDataDict` (
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `SysDataDict` (
   `DictSort`           int(11)         NOT NULL       COMMENT '字典排序',
   `Remark`              varchar(50)     NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '字典类型表';
+) ENGINE=InnoDB COMMENT '字典类型表';
 
 DROP TABLE IF EXISTS `SysDataDictDetail`;
 CREATE TABLE IF NOT EXISTS `SysDataDictDetail` (
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `SysDataDictDetail` (
   `IsDefault`          int(11)         NOT NULL       COMMENT '默认选中(0不是 1是)',
   `Remark`              varchar(50)     NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '字典数据表';
+) ENGINE=InnoDB COMMENT '字典数据表';
 
 DROP TABLE IF EXISTS `SysDepartment`;
 CREATE TABLE IF NOT EXISTS `SysDepartment` (
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `SysDepartment` (
   `DepartmentSort`         int(11)         NOT NULL       COMMENT '部门排序',
   `Remark`                  text            NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '部门表';
+) ENGINE=InnoDB COMMENT '部门表';
 
 DROP TABLE IF EXISTS `SysMenu`;
 CREATE TABLE IF NOT EXISTS `SysMenu` (
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `SysMenu` (
   `Authorize`               varchar(50)     NOT NULL       COMMENT '菜单权限标识',
   `Remark`                  varchar(50)     NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '菜单表';
+) ENGINE=InnoDB COMMENT '菜单表';
 
 DROP TABLE IF EXISTS `SysMenuAuthorize`;
 CREATE TABLE IF NOT EXISTS `SysMenuAuthorize` (
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `SysMenuAuthorize` (
   `AuthorizeId`            bigint(20)      NOT NULL       COMMENT '授权Id(角色Id或者用户Id)',
   `AuthorizeType`          int(11)         NOT NULL       COMMENT '授权类型(1角色 2用户)',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '菜单权限表';
+) ENGINE=InnoDB COMMENT '菜单权限表';
 
 DROP TABLE IF EXISTS `SysNews`;
 CREATE TABLE IF NOT EXISTS `SysNews` (
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `SysNews` (
   `NewsType`           int(11)         NOT NULL       COMMENT '新闻类型(1产品案例 2行业新闻)',
   `ViewTimes`          int(11)         NOT NULL       COMMENT '查看次数',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '新闻表';
+) ENGINE=InnoDB COMMENT '新闻表';
 
 DROP TABLE IF EXISTS `SysPosition`;
 CREATE TABLE IF NOT EXISTS `SysPosition` (
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `SysPosition` (
   `PositionStatus`     int(11)         NOT NULL       COMMENT '职位状态(0禁用 1启用)',
   `Remark`              varchar(50)     NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '职位表';
+) ENGINE=InnoDB COMMENT '职位表';
 
 DROP TABLE IF EXISTS `SysRole`;
 CREATE TABLE IF NOT EXISTS `SysRole` (
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `SysRole` (
   `RoleStatus`         int(11)         NOT NULL       COMMENT '角色状态(0禁用 1启用)',
   `Remark`              varchar(50)     NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '角色表';
+) ENGINE=InnoDB COMMENT '角色表';
 
 DROP TABLE IF EXISTS `SysUser`;
 CREATE TABLE IF NOT EXISTS `SysUser` (
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `SysUser` (
   `WebToken`           varchar(32)         NOT NULL       COMMENT '后台Token',
   `ApiToken`           varchar(32)         NOT NULL       COMMENT 'ApiToken',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '用户表';
+) ENGINE=InnoDB COMMENT '用户表';
 
 DROP TABLE IF EXISTS `SysUserBelong`;
 CREATE TABLE IF NOT EXISTS `SysUserBelong` (
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `SysUserBelong` (
   `BelongId`           bigint(20)      NOT NULL       COMMENT '职位Id或者角色Id',
   `BelongType`         int(11)         NOT NULL       COMMENT '所属类型(1职位 2角色)',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '用户所属表';
+) ENGINE=InnoDB COMMENT '用户所属表';
 
 DROP TABLE IF EXISTS `SysAutoJobLog`;
 CREATE TABLE IF NOT EXISTS `SysAutoJobLog` (
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `SysAutoJobLog` (
   `LogStatus`          int(11)         NOT NULL       COMMENT '执行状态(0失败 1成功)',
   `Remark`              text            NOT NULL       COMMENT '备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '用户所属表';
+) ENGINE=InnoDB COMMENT '用户所属表';
 
 DROP TABLE IF EXISTS `SysLogApi`;
 CREATE TABLE IF NOT EXISTS `SysLogApi` (
@@ -251,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `SysLogApi` (
   `ExecuteResult`      text            NOT NULL       COMMENT '请求结果',
   `ExecuteTime`        int(11)         NOT NULL       COMMENT '执行时间',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT 'Api日志表';
+) ENGINE=InnoDB COMMENT 'Api日志表';
 
 DROP TABLE IF EXISTS `SysLogLogin`;
 CREATE TABLE IF NOT EXISTS `SysLogLogin` (
@@ -266,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `SysLogLogin` (
   `Remark`              varchar(50)     NOT NULL       COMMENT '备注',
   `ExtraRemark`        text            NOT NULL       COMMENT '额外备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '登录日志表';
+) ENGINE=InnoDB COMMENT '登录日志表';
 
 DROP TABLE IF EXISTS `SysLogOperate`;
 CREATE TABLE IF NOT EXISTS `SysLogOperate` (
@@ -284,4 +284,4 @@ CREATE TABLE IF NOT EXISTS `SysLogOperate` (
   `ExecuteResult`      text            NOT NULL       COMMENT '请求结果',
   `ExecuteTime`        int(11)         NOT NULL       COMMENT '执行时间',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '操作日志表';
+) ENGINE=InnoDB COMMENT '操作日志表';

@@ -6,8 +6,8 @@
     <FileVersion>3.1.0.0</FileVersion>
     <Company>SunRise_HOSP_MONITOR.Admin.Web</Company>
     <Authors>SunRise_HOSP_MONITOR.Admin.Web</Authors>
-    <Product>YiShaAdmin</Product>
-    <Copyright>YiShaAdmin</Copyright>
+    <Product>SunRise_HOSP_MONITORAdmin</Product>
+    <Copyright>SunRise_HOSP_MONITORAdmin</Copyright>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 

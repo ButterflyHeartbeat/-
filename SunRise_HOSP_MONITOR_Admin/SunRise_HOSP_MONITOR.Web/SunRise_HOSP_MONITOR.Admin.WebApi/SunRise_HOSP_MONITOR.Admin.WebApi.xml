@@ -41,6 +41,21 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:SunRise_HOSP_MONITOR.Admin.WebApi.Controllers.UserController.Login(System.String,System.String)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise_HOSP_MONITOR.Admin.WebApi.Controllers.UserController.LoginOff(System.String)">
+            <summary>
+            用户退出登录
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
         <member name="T:SunRise_HOSP_MONITOR.Admin.WebApi.Controllers.AuthorizeFilterAttribute">
             <summary>
             验证token和记录日志
