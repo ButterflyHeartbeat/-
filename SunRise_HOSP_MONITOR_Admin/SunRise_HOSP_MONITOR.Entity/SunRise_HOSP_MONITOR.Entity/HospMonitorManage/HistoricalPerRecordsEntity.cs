@@ -22,7 +22,7 @@ namespace SunRise_HOSP_MONITOR.Entity.HospMonitorManage
         /// 0:病人 1:陪护 2:访客
         /// </summary>
         /// <returns></returns>
-        public byte? nType { get; set; }
+        public int? nType { get; set; }
         /// <summary>
         /// 
         /// </summary>

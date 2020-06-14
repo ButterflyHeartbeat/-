@@ -8,6 +8,7 @@ using SunRise_HOSP_MONITOR.Util.Model;
 using SunRise_HOSP_MONITOR.Entity.HospMonitorManage;
 using SunRise_HOSP_MONITOR.Model.Param.HospMonitorManage;
 using SunRise_HOSP_MONITOR.Service.HospMonitorManage;
+using Microsoft.VisualBasic;
 
 namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
 {
@@ -19,7 +20,7 @@ namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
     public class PassRecordBLL
     {
         private PassRecordService passRecordService = new PassRecordService();
-
+        private InlinePeopleService inlinePeopleService = new InlinePeopleService();
         #region 获取数据
         public async Task<TData<List<PassRecordEntity>>> GetList(PassRecordListParam param)
         {
@@ -55,10 +56,32 @@ namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
         public async Task<TData<string>> SaveForm(PassRecordEntity entity)
         {
             TData<string> obj = new TData<string>();
+            var InLineEntity = await this.GetInLineEntity(entity.sId);
+            if (InLineEntity == null)
+            {
+                obj.Tag = 0;
+                obj.Message = "您尚未登记，请登记";
+                return obj;
+            }
+            entity.nType = InLineEntity.nType;
+            entity.dtPass = DateTime.Now;
+            entity.sPatientId = InLineEntity.sPatientId;
+
             await passRecordService.SaveForm(entity);
             obj.Data = entity.Id.ParseToString();
             obj.Tag = 1;
+            obj.Message = $"您是{nameof(entity.nType)}人员_请通过";
             return obj;
+        }
+
+        private async Task<InlinePeopleEntity> GetInLineEntity(string sId)
+        {
+            List<InlinePeopleEntity> data = await inlinePeopleService.GetList(new InlinePeopleListParam
+            {
+                sId = sId
+            });
+            if (data.Count > 0) return data.FirstOrDefault();
+            return null;
         }
 
         public async Task<TData> DeleteForm(string ids)

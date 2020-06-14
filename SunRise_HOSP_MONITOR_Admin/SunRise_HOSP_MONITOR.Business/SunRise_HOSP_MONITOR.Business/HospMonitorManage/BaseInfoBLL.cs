@@ -8,6 +8,7 @@ using SunRise_HOSP_MONITOR.Util.Model;
 using SunRise_HOSP_MONITOR.Entity.HospMonitorManage;
 using SunRise_HOSP_MONITOR.Model.Param.HospMonitorManage;
 using SunRise_HOSP_MONITOR.Service.HospMonitorManage;
+using SunRise_HOSP_MONITOR.Enum;
 
 namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
 {
@@ -19,7 +20,8 @@ namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
     public class BaseInfoBLL
     {
         private BaseInfoService baseInfoService = new BaseInfoService();
-
+        private InlinePeopleService inlinePeopleService = new InlinePeopleService();
+        private ConfigService configService = new ConfigService();
         #region 获取数据
         public async Task<TData<List<BaseInfoEntity>>> GetList(BaseInfoListParam param)
         {
@@ -60,7 +62,75 @@ namespace SunRise_HOSP_MONITOR.Business.HospMonitorManage
             obj.Tag = 1;
             return obj;
         }
+        /// <summary>
+        /// 登记
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<TData<string>> RegisterBase(BaseInfoViewModel entity)
+        {
+            TData<string> obj = new TData<string>();
+            obj.Tag = 0;
+            if (!System.Enum.IsDefined(typeof(nTypeEnum), entity.nType))
+            {
+                obj.Message = $"人员类型有误";
+                return obj;
+            }
+            if (!await QueryInLineCount(entity.sPatient, entity.nType))
+            {
+                var nTypeStr = (nTypeEnum)entity.nType == nTypeEnum.Chaperon ?"陪护":"访客";
+                obj.Message = $"该患者的{nTypeStr}人数已达上线";
+                return obj;
+            }
+            await baseInfoService.SaveForm(new BaseInfoEntity
+            {
+                sId = entity.sId,
+                sName = entity.sName,
+                sPhone = entity.sPhone,
+                sAddress = entity.sAddress,
+                sBedNo = entity.sBedNo,
+                sArea = entity.sArea,
+                sDoc = entity.sDoc,
+                sSex = entity.sSex,
+                sAge = entity.sAge,
+                sRemarks = entity.sRemarks,
+                sExtend = entity.sExtend
+            });
 
+            //if (entity.IsOnLine==1)
+            if (true)
+            {
+                await inlinePeopleService.SaveForm(new InlinePeopleEntity
+                {
+                    sId = entity.sId,
+                    nType = entity.nType,
+                    dtCheckIn = DateTime.Now,
+                    sPatientId = entity.nType == 0 ? entity.sId : entity.sPatient
+                });
+            }
+           
+            //obj.Data = entity.sId;
+            obj.Tag = 1;
+            return obj;
+        }
+
+        /// <summary>
+        /// 判断当前患者陪护/访客人数是否达到上限
+        /// </summary>
+        /// <param name="sPatientId"></param>
+        /// <param name="nType"></param>
+        /// <returns></returns>
+        private async Task<bool> QueryInLineCount(string sPatientId, int nType)
+        {
+            List<InlinePeopleEntity> inlinePeopleEntities = await inlinePeopleService.GetList(new InlinePeopleListParam
+            {
+                sPatientId = sPatientId,
+                nType = nType
+            });
+            if (nType == (int)nTypeEnum.Chaperon && inlinePeopleEntities.Count >= HospMonConfigure.nMaxAccompanyCount) return false;
+            if (nType == (int)nTypeEnum.Visitor && inlinePeopleEntities.Count >= HospMonConfigure.nMaxVisitorCount) return false;
+            return true;
+        }
         public async Task<TData> DeleteForm(string ids)
         {
             TData obj = new TData();

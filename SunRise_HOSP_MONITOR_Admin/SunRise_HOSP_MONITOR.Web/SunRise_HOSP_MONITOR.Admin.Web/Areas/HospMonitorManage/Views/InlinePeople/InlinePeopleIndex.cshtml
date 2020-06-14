@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SunRise_HOSP_MONITOR.Enum
+@using SunRise_HOSP_MONITOR.Util.Extension
+@{
     Layout = "~/Views/Shared/_Index.cshtml";
  }
 <div class="container-div">
@@ -7,8 +9,18 @@
             <div class="select-list">
                 <ul>
                     <li>
-                        身份证：<input id="sId" col="sId" type="text" />
+                        &nbsp;&nbsp;&nbsp;身份证：<input id="sId" col="sId" type="text" />
                     </li>
+                    <li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<input id="sName" col="sName" type="text" />
+                    </li>
+                    <li>
+                        人员类型：<span id="nType" col="nType"></span>
+                    </li>
+                    <li>
+                        登记时间：<input id="dtCheckIn" col="dtCheckIn" type="text" />
+                    </li>
+              
                     <li>
                         <a id="btnSearch" class="btn btn-primary btn-sm" onclick="searchGrid()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                     </li>
@@ -16,8 +28,8 @@
             </div>
         </div>
         <div class="btn-group-sm hidden-xs" id="toolbar">
-            @*<a id="btnAdd" class="btn btn-success" onclick="showSaveForm(true)"><i class="fa fa-plus"></i> 新增</a>*@
-            <a id="btnEdit" class="btn btn-primary disabled" onclick="showSaveForm(false)"><i class="fa fa-edit"></i>查看详情</a>
+            <a id="btnAdd" class="btn btn-success" onclick="showSaveForm(true)"><i class="fa fa-plus"></i> 登记</a>
+            @*<a id="btnEdit" class="btn btn-primary disabled" onclick="showSaveForm(false)"><i class="fa fa-edit"></i>查看详情</a>*@
             <a id="btnDelete" class="btn btn-danger disabled" onclick="deleteForm()"><i class="fa fa-remove"></i> 注销</a>
         </div>
         <div class="col-sm-12 select-table table-striped">
@@ -29,26 +41,59 @@
 <script type="text/javascript">
     $(function () {
         initGrid();
+        $("#nType").ysComboBox({ data: ys.getJson(@Html.Raw(typeof(nTypeEnum).EnumToDictionaryString())) });
+        laydate.render({ elem: '#dtCheckIn', format: 'yyyy-MM-dd' });
     });
 
     function initGrid() {
-        var queryUrl = '@Url.Content("~/HospMonitorManage/InlinePeople/GetPageListJson")';
+        //var queryUrl = '@Url.Content("~/HospMonitorManage/InlinePeople/GetPageListJson")';
+        var queryUrl = '@Url.Content("~/HospMonitorManage/InlinePeople/GetInLineDetailJson")';
+        var ntype = '';
         $('#gridTable').ysTable({
             url: queryUrl,
             columns: [
                 { checkbox: true, visible: true },
-                { field: 'Id', title: 'Id', visible: false },
-                { field: 'sId', title: 'sId' },
-                { field: 'nType', title: 'nType' },
-                { field: 'dtCheckIn', title: 'dtCheckIn' },
-                { field: 'sPatientId', title: 'sPatientId' },
+                { field: 'Id', title: 'ID', visible: false },
+                { field: 'sId', title: '身份证' },
+                { field: 'sName', title: '姓名' },
+                 {
+                     field: 'nType', title: '人员类型',
+                    formatter: function (value, row, index) {
+                        if (value == "@nTypeEnum.Patient.ParseToInt()") {
+                            ntype = 'patient';
+                            return '<span class="badge badge-danger">' + "@nTypeEnum.Patient.GetDescription()" + '</span>';
+                        } else if (value == "@nTypeEnum.Chaperon.ParseToInt()") {
+                            return '<span class="badge badge-warning">' + "@nTypeEnum.Chaperon.GetDescription()" + '</span>';
+                        } else {
+                            return '<span class="badge badge-primary">' + "@nTypeEnum.Visitor.GetDescription()" + '</span>';
+                        }
+                    }
+                },
+                {
+                    field: 'dtCheckIn', title: '登记时间', formatter: function (value, row, index) {
+                        return ys.formatDate(value, "yyyy-MM-dd HH:mm:ss");
+                    }
+                },
+
+                {
+                    field: 'sPatientId', title:'陪护/探访对象',
+                    formatter: function (value, row, index) {
+                        if (ntype == "patient") {
+                            value = '';
+                            ntype = '';
+                        }
+                          return value;
+                    }
+                }
+
+
             ],
             queryParams: function (params) {
-                var pagination = $('#gridTable').ysTable('getPagination', params);
-                var queryString = $('#searchDiv').getWebControls(pagination);
-                return queryString;
-            }
-        });
+                        var pagination = $('#gridTable').ysTable('getPagination', params);
+                        var queryString = $('#searchDiv').getWebControls(pagination);
+                        return queryString;
+                    }
+                });
     }
 
     function searchGrid() {

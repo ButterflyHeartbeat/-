@@ -12,5 +12,16 @@ namespace SunRise_HOSP_MONITOR.Model.Param.HospMonitorManage
     /// </summary>
     public class InlinePeopleListParam
     {
+        public string sName { get; set; }
+        public string sId { get; set; }
+
+        public int? nType { get; set; }
+        /// <summary>
+        /// 登记时间
+        /// </summary>
+        public DateTime? dtCheckIn { get; set; }
+
+        public string sPatientId { get; set; }
+
     }
 }

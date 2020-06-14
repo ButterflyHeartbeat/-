@@ -1,6 +1,8 @@
-﻿@{
+﻿@using SunRise_HOSP_MONITOR.Enum
+@using SunRise_HOSP_MONITOR.Util.Extension
+@{
     Layout = "~/Views/Shared/_Index.cshtml";
- }
+}
 <div class="container-div">
     <div class="row">
         <div id="searchDiv" class="col-sm-12 search-collapse">
@@ -17,8 +19,8 @@
         </div>
         <div class="btn-group-sm hidden-xs" id="toolbar">
             <a id="btnAdd" class="btn btn-success" onclick="showSaveForm(true)"><i class="fa fa-plus"></i> 新增</a>
-            <a id="btnEdit" class="btn btn-primary disabled" onclick="showSaveForm(false)"><i class="fa fa-edit"></i> 修改</a>
-            <a id="btnDelete" class="btn btn-danger disabled" onclick="deleteForm()"><i class="fa fa-remove"></i> 删除</a>
+            @*<a id="btnEdit" class="btn btn-primary disabled" onclick="showSaveForm(false)"><i class="fa fa-edit"></i> 修改</a>
+            <a id="btnDelete" class="btn btn-danger disabled" onclick="deleteForm()"><i class="fa fa-remove"></i> 删除</a>*@
         </div>
         <div class="col-sm-12 select-table table-striped">
             <table id="gridTable" data-mobile-responsive="true"></table>
@@ -33,15 +35,37 @@
 
     function initGrid() {
         var queryUrl = '@Url.Content("~/HospMonitorManage/PassRecord/GetPageListJson")';
+        var ntype = '';
         $('#gridTable').ysTable({
             url: queryUrl,
             columns: [
                 { checkbox: true, visible: true },
                 { field: 'Id', title: 'Id', visible: false },
-                { field: 'sId', title: 'sId' },
-                { field: 'nType', title: 'nType' },
-                { field: 'dtPass', title: 'dtPass' },
-                { field: 'sPatientId', title: 'sPatientId' },
+                { field: 'sId', title: '身份证' },
+                {
+                     field: 'nType', title: '人员类型',
+                    formatter: function (value, row, index) {
+                        if (value == "@nTypeEnum.Patient.ParseToInt()") {
+                            ntype = 'patient';
+                            return '<span class="badge badge-danger">' + "@nTypeEnum.Patient.GetDescription()" + '</span>';
+                        } else if (value == "@nTypeEnum.Chaperon.ParseToInt()") {
+                            return '<span class="badge badge-warning">' + "@nTypeEnum.Chaperon.GetDescription()" + '</span>';
+                        } else {
+                            return '<span class="badge badge-primary">' + "@nTypeEnum.Visitor.GetDescription()" + '</span>';
+                        }
+                    }
+                },
+                { field: 'dtPass', title: '通过时间' },
+                {
+                    field: 'sPatientId', title: '陪护/探访对象',
+                    formatter: function (value, row, index) {
+                        if (ntype == "patient") {
+                            value = '';
+                            ntype = '';
+                        }
+                        return value;
+                    }
+                }
             ],
             queryParams: function (params) {
                 var pagination = $('#gridTable').ysTable('getPagination', params);

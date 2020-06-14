@@ -7,6 +7,15 @@ using System.Threading.Tasks;
 
 namespace SunRise_HOSP_MONITOR.Enum
 {
+    public enum nTypeEnum
+    {
+        [Description("病人")]
+        Patient =0,
+        [Description("陪护")]
+        Chaperon =1,
+        [Description("访客")]
+        Visitor =2
+    }
     public enum StatusEnum
     {
         [Description("启用")]

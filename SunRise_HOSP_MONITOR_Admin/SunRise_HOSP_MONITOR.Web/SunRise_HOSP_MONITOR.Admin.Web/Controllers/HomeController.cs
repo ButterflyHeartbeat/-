@@ -17,6 +17,7 @@ using SunRise_HOSP_MONITOR.Util;
 using SunRise_HOSP_MONITOR.Entity.OrganizationManage;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using SunRise_HOSP_MONITOR.Business.HospMonitorManage;
 
 namespace SunRise_HOSP_MONITOR.Admin.Web.Controllers
 {
@@ -26,6 +27,7 @@ namespace SunRise_HOSP_MONITOR.Admin.Web.Controllers
         private UserBLL userBLL = new UserBLL();
         private LogLoginBLL logLoginBLL = new LogLoginBLL();
         private MenuAuthorizeBLL menuAuthorizeBLL = new MenuAuthorizeBLL();
+        private ConfigBLL configBLL = new ConfigBLL();
 
         #region 视图功能
         [HttpGet]
@@ -33,6 +35,7 @@ namespace SunRise_HOSP_MONITOR.Admin.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            await GetMaxAVCount();
             OperatorInfo operatorInfo = await Operator.Instance.Current();
 
             TData<List<MenuEntity>> objMenu = await menuBLL.GetList(null);
@@ -124,12 +127,22 @@ namespace SunRise_HOSP_MONITOR.Admin.Web.Controllers
         #region 获取数据
         public IActionResult GetCaptchaImage()
         {
+            
             string sessionId = GlobalContext.ServiceProvider?.GetService<IHttpContextAccessor>().HttpContext.Session.Id;
 
             Tuple<string, int> captchaCode = CaptchaHelper.GetCaptchaCode();
             byte[] bytes = CaptchaHelper.CreateCaptchaImage(captchaCode.Item1);
             new SessionHelper().WriteSession("CaptchaCode", captchaCode.Item2);
             return File(bytes, @"image/jpeg");
+        }
+
+         private async Task GetMaxAVCount()
+        {
+           TData<List<Entity.HospMonitorManage.ConfigEntity>> data= await configBLL.GetList(new Model.Param.HospMonitorManage.ConfigListParam { 
+            
+            });
+            HospMonConfigure.nMaxAccompanyCount = data?.Data?.FirstOrDefault()?.nMaxAccompanyCount??0;
+            HospMonConfigure.nMaxVisitorCount = data?.Data?.FirstOrDefault()?.nMaxVisitorCount ?? 0;
         }
         #endregion
 

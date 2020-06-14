@@ -17,22 +17,22 @@ namespace SunRise_HOSP_MONITOR.Admin.Web.Areas.HospMonitorManage.Controllers
 {
     /// <summary>
     /// 创 建：admin
-    /// 日 期：2020-06-12 12:43
-    /// 描 述：人员基础信息控制器类
+    /// 日 期：2020-06-13 18:27
+    /// 描 述：配置表控制器类
     /// </summary>
     [Area("HospMonitorManage")]
-    public class BaseInfoController :  BaseController
+    public class ConfigController :  BaseController
     {
-        private BaseInfoBLL baseInfoBLL = new BaseInfoBLL();
+        private ConfigBLL configBLL = new ConfigBLL();
 
         #region 视图功能
-        [AuthorizeFilter("hospmonitor:baseinfo:view")]
-        public ActionResult BaseInfoIndex()
+        [AuthorizeFilter("hospmonitor:config:view")]
+        public ActionResult ConfigIndex()
         {
             return View();
         }
 
-        public ActionResult BaseInfoForm()
+        public ActionResult ConfigForm()
         {
             return View();
         }
@@ -40,44 +40,43 @@ namespace SunRise_HOSP_MONITOR.Admin.Web.Areas.HospMonitorManage.Controllers
 
         #region 获取数据
         [HttpGet]
-        [AuthorizeFilter("hospmonitor:baseinfo:search")]
-        public async Task<ActionResult> GetListJson(BaseInfoListParam param)
+        [AuthorizeFilter("hospmonitor:config:search")]
+        public async Task<ActionResult> GetListJson(ConfigListParam param)
         {
-            TData<List<BaseInfoEntity>> obj = await baseInfoBLL.GetList(param);
+            TData<List<ConfigEntity>> obj = await configBLL.GetList(param);
             return Json(obj);
         }
 
         [HttpGet]
-        [AuthorizeFilter("hospmonitor:baseinfo:search")]
-        public async Task<ActionResult> GetPageListJson(BaseInfoListParam param, Pagination pagination)
+        [AuthorizeFilter("hospmonitor:config:search")]
+        public async Task<ActionResult> GetPageListJson(ConfigListParam param, Pagination pagination)
         {
-            TData<List<BaseInfoEntity>> obj = await baseInfoBLL.GetPageList(param, pagination);
+            TData<List<ConfigEntity>> obj = await configBLL.GetPageList(param, pagination);
             return Json(obj);
         }
 
         [HttpGet]
         public async Task<ActionResult> GetFormJson(long id)
         {
-            TData<BaseInfoEntity> obj = await baseInfoBLL.GetEntity(id);
+            TData<ConfigEntity> obj = await configBLL.GetEntity(id);
             return Json(obj);
         }
         #endregion
 
         #region 提交数据
         [HttpPost]
-        [AuthorizeFilter("hospmonitor:baseinfo:add,hospmonitor:baseinfo:edit")]
-        public async Task<ActionResult> SaveFormJson(BaseInfoEntity entity)
+        [AuthorizeFilter("hospmonitor:config:add,hospmonitor:config:edit")]
+        public async Task<ActionResult> SaveFormJson(ConfigEntity entity)
         {
-            TData<string> obj = await baseInfoBLL.SaveForm(entity);
+            TData<string> obj = await configBLL.SaveForm(entity);
             return Json(obj);
         }
 
-       
         [HttpPost]
-        [AuthorizeFilter("hospmonitor:baseinfo:delete")]
+        [AuthorizeFilter("hospmonitor:config:delete")]
         public async Task<ActionResult> DeleteFormJson(string ids)
         {
-            TData obj = await baseInfoBLL.DeleteForm(ids);
+            TData obj = await configBLL.DeleteForm(ids);
             return Json(obj);
         }
         #endregion

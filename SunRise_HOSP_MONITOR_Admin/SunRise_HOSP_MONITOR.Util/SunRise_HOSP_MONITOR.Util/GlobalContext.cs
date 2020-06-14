@@ -49,6 +49,8 @@ namespace SunRise_HOSP_MONITOR.Util
             LogHelper.WriteWithTime(sb.ToString());
         }
 
+
+
         /// <summary>
         /// 设置cache control
         /// </summary>

@@ -72,6 +72,14 @@ namespace SunRise_HOSP_MONITOR.Service.HospMonitorManage
             var expression = LinqExtensions.True<BaseInfoEntity>();
             if (param != null)
             {
+                if (!string.IsNullOrEmpty(param.sId))
+                {
+                    expression.And(t => t.sId.Contains(param.sId));
+                }
+                if (!string.IsNullOrEmpty(param.sName))
+                {
+                    expression.And(t => t.sName.Contains(param.sName));
+                }
             }
             return expression;
         }

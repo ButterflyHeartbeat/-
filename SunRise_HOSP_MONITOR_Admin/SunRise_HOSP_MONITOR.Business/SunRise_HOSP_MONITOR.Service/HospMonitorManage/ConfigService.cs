@@ -17,36 +17,34 @@ namespace SunRise_HOSP_MONITOR.Service.HospMonitorManage
 {
     /// <summary>
     /// 创 建：admin
-    /// 日 期：2020-06-12 12:41
-    /// 描 述：在线人员服务类
+    /// 日 期：2020-06-13 18:27
+    /// 描 述：配置表服务类
     /// </summary>
-    public class InlinePeopleService :  RepositoryFactory
+    public class ConfigService :  RepositoryFactory
     {
         #region 获取数据
-        public async Task<List<InlinePeopleEntity>> GetList(InlinePeopleListParam param)
+        public async Task<List<ConfigEntity>> GetList(ConfigListParam param)
         {
             var expression = ListFilter(param);
             var list = await this.BaseRepository().FindList(expression);
             return list.ToList();
         }
 
-        public async Task<List<InlinePeopleEntity>> GetPageList(InlinePeopleListParam param, Pagination pagination)
+        public async Task<List<ConfigEntity>> GetPageList(ConfigListParam param, Pagination pagination)
         {
             var expression = ListFilter(param);
             var list= await this.BaseRepository().FindList(expression, pagination);
             return list.ToList();
         }
 
-        public async Task<InlinePeopleEntity> GetEntity(long id)
+        public async Task<ConfigEntity> GetEntity(long id)
         {
-            return await this.BaseRepository().FindEntity<InlinePeopleEntity>(id);
+            return await this.BaseRepository().FindEntity<ConfigEntity>(id);
         }
-
-   
         #endregion
 
         #region 提交数据
-        public async Task SaveForm(InlinePeopleEntity entity)
+        public async Task SaveForm(ConfigEntity entity)
         {
             if (entity.Id.IsNullOrZero())
             {
@@ -63,33 +61,16 @@ namespace SunRise_HOSP_MONITOR.Service.HospMonitorManage
         public async Task DeleteForm(string ids)
         {
             long[] idArr = TextHelper.SplitToArray<long>(ids, ',');
-            await this.BaseRepository().Delete<InlinePeopleEntity>(idArr);
+            await this.BaseRepository().Delete<ConfigEntity>(idArr);
         }
         #endregion
 
         #region 私有方法
-        private Expression<Func<InlinePeopleEntity, bool>> ListFilter(InlinePeopleListParam param)
+        private Expression<Func<ConfigEntity, bool>> ListFilter(ConfigListParam param)
         {
-            var expression = LinqExtensions.True<InlinePeopleEntity>();
+            var expression = LinqExtensions.True<ConfigEntity>();
             if (param != null)
             {
-                if (!string.IsNullOrEmpty(param.sId))
-                {
-                    expression = expression.And(t => t.sId.Contains(param.sId));
-                }
-                if (!string.IsNullOrEmpty(param.dtCheckIn.ParseToString()))
-                {
-                    var endtime = (param.dtCheckIn.Value.ToString("yyyy-MM-dd") + " 23:59:59").ParseToDateTime();
-                    expression = expression.And(t => t.dtCheckIn <= endtime&&t.dtCheckIn>=param.dtCheckIn);
-                }
-                if (param.nType > -1)
-                {
-                    expression = expression.And(t => t.nType.Equals(param.nType));
-                }
-                if (!string.IsNullOrEmpty(param.sPatientId))
-                {
-                    expression = expression.And(t=>t.sPatientId.Equals(param.sPatientId));
-                }
             }
             return expression;
         }
