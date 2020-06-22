@@ -1,0 +1,711 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunRise.HOSP.MONITOR.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.BaseEntity">
+            <summary>
+            数据库实体的基类，所有的数据库实体属性类型都是可空值类型，为了在做条件查询的时候进行判断
+            虽然是可空值类型，null的属性值，在底层会根据属性类型赋值默认值，字符串是string.empty，数值是0，日期是1970-01-01
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseEntity.Id">
+            <summary>
+            所有表的主键
+            long返回到前端js的时候，会丢失精度，所以转成字符串
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseEntity.Token">
+            <summary>
+            WebApi没有Cookie和Session，所以需要传入Token来标识用户身份
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseCreateEntity.BaseCreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseCreateEntity.BaseCreatorId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseModifyEntity.BaseVersion">
+            <summary>
+            数据更新版本，控制并发
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseModifyEntity.BaseModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseModifyEntity.BaseModifierId">
+            <summary>
+            修改人ID
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.BaseExtensionEntity.BaseIsDelete">
+            <summary>
+            是否删除 1是，0否
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity">
+            <summary>
+            创 建：admin
+            日 期：2020-06-12 12:43
+            描 述：人员基础信息实体类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sId">
+            <summary>
+            身份证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sName">
+            <summary>
+            姓名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sPhone">
+            <summary>
+            电话
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sAddress">
+            <summary>
+            地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sBedNo">
+            <summary>
+            病床号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sArea">
+            <summary>
+            病区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sDoc">
+            <summary>
+            主治医生
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sSex">
+            <summary>
+            性别  0女  1男
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sAge">
+            <summary>
+            年龄
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sRemarks">
+            <summary>
+            备注
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoEntity.sExtend">
+            <summary>
+            扩展字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity">
+            <summary>
+            创 建：admin
+            日 期：2020-06-15 10:51
+            描 述：配置表实体类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity.ConfigCnName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity.ConfigName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity.ConfigValue">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity.Remark">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.ConfigEntity.CreatTime">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity">
+            <summary>
+            创 建：admin
+            日 期：2020-06-12 16:51
+            描 述：历史人员记录实体类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity.sId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity.nType">
+            <summary>
+            0:病人 1:陪护 2:访客
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity.dtCheckIn">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity.dtCheckOut">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HistoricalPerRecordsEntity.sPatientId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.InlinePeopleEntity">
+            <summary>
+            创 建：admin
+            日 期：2020-06-12 12:41
+            描 述：在线人员实体类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.InlinePeopleEntity.sId">
+            <summary>
+            身份证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.InlinePeopleEntity.nType">
+            <summary>
+            0:病人 1:陪护 2:访客
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.InlinePeopleEntity.dtCheckIn">
+            <summary>
+            登记时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.InlinePeopleEntity.sPatientId">
+            <summary>
+            关联的病人，本身是病人(nType==0)时则为空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.PassRecordEntity">
+            <summary>
+            创 建：admin
+            日 期：2020-06-12 16:44
+            描 述：人员出入记录实体类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.PassRecordEntity.sId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.PassRecordEntity.nType">
+            <summary>
+            0:病人 1:陪护 2:访客
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.PassRecordEntity.dtPass">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.PassRecordEntity.sPatientId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.nType">
+            <summary>
+            人员类型
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sPatient">
+            <summary>
+            如果是陪护/访客则需绑定病人 身份证
+            如果是病人 即nType=0 ，则此项为sId
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sId">
+            <summary>
+            身份证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sName">
+            <summary>
+            姓名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sPhone">
+            <summary>
+            电话
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sAddress">
+            <summary>
+            地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sBedNo">
+            <summary>
+            病床号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sArea">
+            <summary>
+            病区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sDoc">
+            <summary>
+            主治医生
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sSex">
+            <summary>
+            性别  0女  1男
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sAge">
+            <summary>
+            年龄
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sRemarks">
+            <summary>
+            备注
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel.sExtend">
+            <summary>
+            扩展字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sId">
+            <summary>
+            身份证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.nType">
+            <summary>
+            1:病人 2:陪护 3:访客
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.dtCheckIn">
+            <summary>
+            登记时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sPatientId">
+            <summary>
+            关联的病人，本身是病人(nType==0)时则为空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sPhone">
+            <summary>
+            电话
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sAddress">
+            <summary>
+            地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sBedNo">
+            <summary>
+            病床号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sArea">
+            <summary>
+            病区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sDoc">
+            <summary>
+            主治医生
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sSex">
+            <summary>
+            性别  0女  1男
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sAge">
+            <summary>
+            年龄
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sRemarks">
+            <summary>
+            备注
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.HospMonitorManage.HospMonitorInLinePeopleViewModel.sExtend">
+            <summary>
+            扩展字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.DepartmentEntity.Ids">
+            <summary>
+            多个部门Id
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.DepartmentEntity.PrincipalName">
+            <summary>
+            负责人名称
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsTitle">
+            <summary>
+            文章标题
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsContent">
+            <summary>
+            文章内容
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsTag">
+            <summary>
+            文章标签
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.ThumbImage">
+            <summary>
+            缩略图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsAuthor">
+            <summary>
+            作者
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsSort">
+            <summary>
+            排序
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsDate">
+            <summary>
+            发布时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.NewsType">
+            <summary>
+            文章类别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.NewsEntity.ViewTimes">
+            <summary>
+            阅读量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.UserBelongEntity.UserIds">
+            <summary>
+            多个用户Id
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.UserEntity.PositionIds">
+            <summary>
+            岗位Id
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.OrganizationManage.UserEntity.RoleIds">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AreaEntity.AreaCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AreaEntity.ParentAreaCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AreaEntity.AreaName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AreaEntity.ZipCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AreaEntity.AreaLevel">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Entity.SystemManage.BaseAreaEntity">
+            <summary>
+            此类给其他需要省市县的业务表继承
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.BaseAreaEntity.ProvinceId">
+            <summary>
+            省份ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.BaseAreaEntity.CityId">
+            <summary>
+            城市ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.BaseAreaEntity.CountyId">
+            <summary>
+            区域ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.JobGroupName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.JobName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.JobStatus">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.CronExpression">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.StartTime">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.EndTime">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.NextStartTime">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobLogEntity.JobGroupName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobLogEntity.JobName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobLogEntity.LogStatus">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.AutoJobLogEntity.Remark">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictDetailEntity.DictType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictDetailEntity.DictSort">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictDetailEntity.DictKey">
+            <summary>
+            字典键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictDetailEntity.DictValue">
+            <summary>
+            字典值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictDetailEntity.Remark">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictEntity.DictType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictEntity.DictSort">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.DataDictEntity.Remark">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.LogStatus">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.Remark">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.ExecuteUrl">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.ExecuteParam">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.ExecuteResult">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Entity.SystemManage.LogApiEntity.ExecuteTime">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:SunRise.HOSP.MONITOR.Entity.SystemManage.RoleEntity.MenuIds" -->
+    </members>
+</doc>

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Cache\SunRise.HOSP.MONITOR.Cache.Factory\SunRise.HOSP.MONITOR.Cache.Factory.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Business\SunRise.HOSP.MONITOR.Business.AutoJob\SunRise.HOSP.MONITOR.Business.AutoJob.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Business\SunRise.HOSP.MONITOR.Business\SunRise.HOSP.MONITOR.Business.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Data\SunRise.HOSP.MONITOR.Data.EF\SunRise.HOSP.MONITOR.Data.EF.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Entity.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Model\SunRise.HOSP.MONITOR.Model.csproj" />
+  </ItemGroup>
+
+</Project>

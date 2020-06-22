@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util.csproj" />
+    <ProjectReference Include="..\SunRise.HOSP.MONITOR.Cache.Interface\SunRise.HOSP.MONITOR.Cache.Interface.csproj" />
+    <ProjectReference Include="..\SunRise.HOSP.MONITOR.MemoryCache\SunRise.HOSP.MONITOR.MemoryCache.csproj" />
+    <ProjectReference Include="..\SunRise.HOSP.MONITOR.RedisCache\SunRise.HOSP.MONITOR.RedisCache.csproj" />
+  </ItemGroup>
+
+</Project>

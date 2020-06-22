@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Data\SunRise.HOSP.MONITOR.Data.Repository\SunRise.HOSP.MONITOR.Data.Repository.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Entity.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Enum\SunRise.HOSP.MONITOR.Enum.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Entity\SunRise.HOSP.MONITOR.Model\SunRise.HOSP.MONITOR.Model.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.IdGenerator\SunRise.HOSP.MONITOR.IdGenerator.csproj" />
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HospMonitorManage\" />
+    <Folder Include="ToolManage\" />
+  </ItemGroup>
+
+</Project>

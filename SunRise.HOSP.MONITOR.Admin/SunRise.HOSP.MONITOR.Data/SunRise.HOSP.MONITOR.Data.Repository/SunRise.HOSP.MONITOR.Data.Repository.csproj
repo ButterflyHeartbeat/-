@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util\SunRise.HOSP.MONITOR.Util.csproj" />
+    <ProjectReference Include="..\SunRise.HOSP.MONITOR.Data.EF\SunRise.HOSP.MONITOR.Data.EF.csproj" />
+    <ProjectReference Include="..\SunRise.HOSP.MONITOR.Data\SunRise.HOSP.MONITOR.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,997 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunRise.HOSP.MONITOR.Util</name>
+    </assembly>
+    <members>
+        <member name="M:SunRise.HOSP.MONITOR.Util.AsyncTaskHelper.StartTask(System.Action)">
+            <summary>
+            开始异步任务
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.BundlerHelper">
+            <summary>
+            Adapted from https://github.com/madskristensen/BundlerMinifier/wiki/Unbundling-scripts-for-debugging
+            
+            Areas modified:
+             - Modified it to make it work with aspnetcore.
+             - Accept both scripts and styles.
+             - Read config from wwwroot
+             - Accept baseFolder since DI not suited for static methods
+             - Style nitpicks
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.CaptchaHelper.GetCaptchaCode">
+            <summary>
+            Tuple第一个值是表达式，第二个值是表达式结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.CaptchaHelper.CreateCaptchaImage(System.String)">
+            <summary>
+            生成验证码图片
+            </summary>
+            <param name="randomCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.ComputerInfo.CPURate">
+            <summary>
+            CPU使用率
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.ComputerInfo.TotalRAM">
+            <summary>
+            总内存
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.ComputerInfo.RAMRate">
+            <summary>
+            内存使用率
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.ComputerInfo.RunTime">
+            <summary>
+            系统运行时间
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.DateTimeHelper.FormatTime(System.Int64)">
+            <summary>
+            毫秒转天时分秒
+            </summary>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.DateTimeHelper.GetUnixTimeStamp(System.DateTime)">
+            <summary>
+            获取unix时间戳
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.ExcelHelper`1">
+            <summary>
+            List导出到Excel文件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ExcelHelper`1.ExportToExcel(System.String,System.String,System.Collections.Generic.List{`0},System.String[])">
+            <summary>
+            List导出到Excel文件
+            </summary>
+            <param name="sFileName"></param>
+            <param name="sHeaderText"></param>
+            <param name="list"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ExcelHelper`1.CreateExportMemoryStream(System.Collections.Generic.List{`0},System.String,System.String[])">
+            <summary>  
+            List导出到Excel的MemoryStream  
+            </summary>  
+            <param name="list">数据源</param>  
+            <param name="sHeaderText">表头文本</param>  
+            <param name="columns">需要导出的属性</param>  
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ExcelHelper`1.ImportFromExcel(System.String)">
+            <summary>
+            Excel导入
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ExcelHelper`1.MapPropertyInfo(System.String)">
+            <summary>
+            查找Excel列名对应的实体属性
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToLong(System.Object)">
+            <summary>
+            将object转换为long，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToLong(System.String,System.Int64)">
+            <summary>
+            将object转换为long，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToInt(System.Object)">
+            <summary>
+            将object转换为int，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToInt(System.Object,System.Int32)">
+            <summary>
+            将object转换为int，若转换失败，则返回指定值。不抛出异常。 
+            null返回默认值
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToShort(System.Object)">
+            <summary>
+            将object转换为short，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToShort(System.Object,System.Int16)">
+            <summary>
+            将object转换为short，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDecimal(System.Object,System.Decimal)">
+            <summary>
+            将object转换为demical，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDecimal(System.Object)">
+            <summary>
+            将object转换为demical，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToBool(System.Object)">
+            <summary>
+            将object转换为bool，若转换失败，则返回false。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToBool(System.Object,System.Boolean)">
+            <summary>
+            将object转换为bool，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToFloat(System.Object)">
+            <summary>
+            将object转换为float，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToFloat(System.Object,System.Single)">
+            <summary>
+            将object转换为float，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToGuid(System.String)">
+            <summary>
+            将string转换为Guid，若转换失败，则返回Guid.Empty。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDateTime(System.String)">
+            <summary>
+            将string转换为DateTime，若转换失败，则返回日期最小值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDateTime(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            将string转换为DateTime，若转换失败，则返回默认值。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToString(System.Object)">
+            <summary>
+            将object转换为string，若转换失败，则返回""。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDouble(System.Object)">
+            <summary>
+            将object转换为double，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.ParseToDouble(System.Object,System.Double)">
+            <summary>
+            将object转换为double，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.CastSuper``1(System.Collections.IEnumerable)">
+            <summary>
+            强制转换类型
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.EnumToDictionary(System.Type)">
+            <summary>
+            转成dictionary类型
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.EnumToDictionaryString(System.Type)">
+            <summary>
+            枚举成员转成键值对Json字符串
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.Extensions.GetDescription(System.Enum)">
+            <summary>
+            获取枚举值对应的描述
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合And
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合Or
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Combines the first expression with the second using the specified merge function.
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder">
+            <summary>
+            ParameterRebinder
+            </summary>
+        </member>
+        <member name="F:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder.map">
+            <summary>
+            The ParameterExpression map
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder.#ctor(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder"/> class.
+            </summary>
+            <param name="map">The map.</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder.ReplaceParameters(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression},System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces the parameters.
+            </summary>
+            <param name="map">The map.</param>
+            <param name="exp">The exp.</param>
+            <returns>Expression</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.Extension.LinqExtensions.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Visits the parameter.
+            </summary>
+            <param name="p">The p.</param>
+            <returns>Expression</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.FileHelper.CreateFile(System.String,System.String)">
+            <summary>
+            创建文件
+            </summary>
+            <param name="path"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.FileHelper.UploadFile(System.Int32,Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            上传单个文件
+            </summary>
+            <param name="fileModule"></param>
+            <param name="fileCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.FileHelper.DeleteFile(System.Int32,System.String)">
+            <summary>
+            删除单个文件
+            </summary>
+            <param name="fileModule"></param>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.FileHelper.DownloadFile(System.String,System.Int32)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="filePath"></param>
+            <param name="delete"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.GlobalContext.Services">
+            <summary>
+            All registered service and class instance container. Which are used for dependency injection.
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.GlobalContext.ServiceProvider">
+            <summary>
+            Configured service provider.
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.GlobalContext.LogWhenStart(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            程序启动时，记录目录
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.GlobalContext.SetCacheControl(Microsoft.AspNetCore.StaticFiles.StaticFileResponseContext)">
+            <summary>
+            设置cache control
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HtmlHelper.Resove(System.String,System.String,System.String)">
+            <summary>
+            Get part Content from HTML by apply prefix part and subfix part
+            </summary>
+            <param name="html">souce html</param>
+            <param name="prefix">prefix</param>
+            <param name="subfix">subfix</param>
+            <returns>part content</returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.HttpHelper">
+            <summary>
+            Http连接操作帮助类 
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.HttpGet(System.String,System.Int32)">
+            <summary>
+            GET请求
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="postDataStr">The post data string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.HttpPost(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            POST请求
+            </summary>
+            <param name="posturl">The posturl.</param>
+            <param name="postData">The post data.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.CreateAutoSubmitForm(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Text.Encoding)">
+            <summary>
+            模拟httpPost提交表单
+            </summary>
+            <param name="url">POS请求的网址</param>
+            <param name="data">表单里的参数和值</param>
+            <param name="encoder">页面编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.GetHttpRequestData(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            根据相传入的数据，得到相应页面数据
+            </summary>
+            <param name="strPostdata">传入的数据Post方式,get方式传NUll或者空字符串都可以</param>
+            <returns>string类型的响应数据</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.GetMemoryStream(System.IO.Stream)">
+            <summary>
+            4.0以下.net版本取数据使用
+            </summary>
+            <param name="streamResponse">流</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetRequest(SunRise.HOSP.MONITOR.Util.HttpItem)">
+             <summary>
+             为请求准备参数
+             </summary>
+            <param name="httpItem">参数列表</param>
+             <param name="_Encoding">读取数据时的编码方式</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetCer(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            设置证书
+            </summary>
+            <param name="objhttpItem"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetEncoding(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            设置编码
+            </summary>
+            <param name="objhttpItem">Http参数</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetCookie(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            设置Cookie
+            </summary>
+            <param name="objhttpItem">Http参数</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetPostData(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            设置Post数据
+            </summary>
+            <param name="objhttpItem">Http参数</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.SetProxy(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            设置代理
+            </summary>
+            <param name="objhttpItem">参数对象</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            回调验证证书问题
+            </summary>
+            <param name="sender">流对象</param>
+            <param name="certificate">证书</param>
+            <param name="chain">X509Chain</param>
+            <param name="errors">SslPolicyErrors</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.GetUrl(System.String)">
+            <summary>    
+            传入一个正确或不正确的URl，返回正确的URL
+            </summary>    
+            <param name="URL">url</param>   
+            <returns>
+            </returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.HttpHelper.GetHtml(SunRise.HOSP.MONITOR.Util.HttpItem)">
+            <summary>
+            采用https协议访问网络,根据传入的URl地址，得到响应的数据字符串。
+            </summary>
+            <param name="httpItem">参数列表</param>
+            <returns>String类型的数据</returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.HttpItem">
+            <summary>
+            Http请求参考类 
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.URL">
+            <summary>
+            请求URL必须填写
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Method">
+            <summary>
+            请求方式默认为GET方式
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Timeout">
+            <summary>
+            默认请求超时时间
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ReadWriteTimeout">
+            <summary>
+            默认写入Post数据超时间
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Accept">
+            <summary>
+            请求标头值 默认为text/html, application/xhtml+xml, */*
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ContentType">
+            <summary>
+            请求返回类型默认 text/html
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.UserAgent">
+            <summary>
+            客户端访问信息默认Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Encoding">
+            <summary>
+            返回数据编码默认为NUll,可以自动识别
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.PostDataType">
+            <summary>
+            Post的数据类型
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Postdata">
+            <summary>
+            Post请求时要发送的字符串Post数据
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.PostdataByte">
+            <summary>
+            Post请求时要发送的Byte类型的Post数据
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.CookieCollection">
+            <summary>
+            Cookie对象集合
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Cookie">
+            <summary>
+            请求时的Cookie
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Referer">
+            <summary>
+            来源地址，上次访问地址
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.CerPath">
+            <summary>
+            证书绝对路径
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.IsToLower">
+            <summary>
+            是否设置为全文小写
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Allowautoredirect">
+            <summary>
+            支持跳转页面，查询结果将是跳转后的页面
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.Connectionlimit">
+            <summary>
+            最大连接数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ProxyUserName">
+            <summary>
+            代理Proxy 服务器用户名
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ProxyPwd">
+            <summary>
+            代理 服务器密码
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ProxyIp">
+            <summary>
+            代理 服务IP
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpItem.ResultType">
+            <summary>
+            设置返回类型String和Byte
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.HttpResult">
+            <summary>
+            Http返回参数类
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpResult.Cookie">
+            <summary>
+            Http请求返回的Cookie
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpResult.CookieCollection">
+            <summary>
+            Cookie对象集合
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpResult.Html">
+            <summary>
+            返回的String类型数据 只有ResultType.String时才返回数据，其它情况为空
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.HttpResult.ResultByte">
+            <summary>
+            返回的Byte数组 只有ResultType.Byte时才返回数据，其它情况为空
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.ResultType">
+            <summary>
+            返回类型
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.PostDataType">
+            <summary>
+            Post的数据格式默认为string
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.IpLocationHelper.GetIpNum(System.String)">
+            <summary>
+            把IP地址转换为Long型数字
+            </summary>
+            <param name="ipAddress">IP地址字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.StringJsonConverter">
+            <summary>
+            Json数据返回到前端js的时候，把数值很大的long类型转成字符串
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.DateTimeJsonConverter">
+            <summary>
+            DateTime类型序列化的时候，转成指定的格式
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.LogHelper.Write(System.String)">
+            <summary>
+            写日志 异步
+            默认路径：根目录/Log/yyyy-MM/
+            默认文件：yyyy-MM-dd.log
+            </summary>
+            <param name="logContent">日志内容 自动附加时间</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.LogHelper.Write(System.Exception)">
+            <summary>
+            写异常日志
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.LogHelper.Write(System.String,System.String)">
+            <summary>
+            写日志 异步
+            默认文件：yyyy-MM-dd.log
+            </summary>
+            <param name="logPath">日志目录[默认程序根目录\Log\下添加，故使用相对路径，如：营销任务]</param>
+            <param name="logContent">日志内容 自动附加时间</param>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.LogHelper.Write(System.String,System.String,System.String)">
+            <summary>
+            写日志 异步
+            </summary>
+            <param name="logPath">日志目录</param>
+            <param name="logFileName">日志文件名</param>
+            <param name="logContent">日志内容 自动附加时间</param>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.ModelBindingMetadataProvider">
+            <summary>
+            Controller Model Binding 处理
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.Model.BaseApiToken">
+            <summary>
+            这个是移动端Api用的
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.HospMonConfigure.nMaxAccompanyCount">
+            <summary>
+            最大陪护人数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.HospMonConfigure.nMaxVisitorCount">
+            <summary>
+            最大访客数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.HospMonData.Code">
+            <summary>
+            0代表失败 1成功
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.HospMonData.Message">
+            <summary>
+            提示信息或异常信息
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.Model.Pagination">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.PageSize">
+            <summary>
+            每页行数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.Sort">
+            <summary>
+            排序列
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.SortType">
+            <summary>
+            排序类型
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.TotalCount">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.Pagination.TotalPage">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.Demo">
+            <summary>
+            是否是Demo模式
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.Debug">
+            <summary>
+            是否是调试模式
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.LoginMultiple">
+            <summary>
+            允许一个用户在多个电脑同时登录
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.SnowFlakeWorkerId">
+            <summary>
+            Snow Flake Worker Id
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.ApiSite">
+            <summary>
+            api地址
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.AllowCorsSite">
+            <summary>
+            允许跨域的站点
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.VirtualDirectory">
+            <summary>
+            网站虚拟目录
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.DBCommandTimeout">
+            <summary>
+             数据库超时间（秒）
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.DBSlowSqlLogTime">
+            <summary>
+            慢查询记录Sql(秒),保存到文件以便分析
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.SystemConfig.DBBackup">
+            <summary>
+            数据库备份路径
+            </summary>
+        </member>
+        <member name="T:SunRise.HOSP.MONITOR.Util.Model.TData">
+            <summary>
+            数据传输对象
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.TData.Tag">
+            <summary>
+            操作结果，Tag为1代表成功，0代表失败，其他的验证返回结果，可根据需要设置
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.TData.Message">
+            <summary>
+            提示信息或异常信息
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.TData.Description">
+            <summary>
+            扩展Message
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.TData`1.Total">
+            <summary>
+            列表的记录数
+            </summary>
+        </member>
+        <member name="P:SunRise.HOSP.MONITOR.Util.Model.TData`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ReflectionHelper.GetProperties(System.Type,System.String[])">
+            <summary>
+            得到类里面的属性集合
+            </summary>
+            <param name="type"></param>
+            <param name="columns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.SecurityHelper.MD5Encrypt(System.String,System.Int32)">
+            <summary>
+            用MD5加密字符串，可选择生成16位或者32位的加密字符串
+            </summary>
+            <param name="str">待加密的字符串</param>
+            <param name="bit">位数，一般取值16 或 32</param>
+            <returns>返回的加密后的字符串</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.TextHelper.GetCustomValue(System.String,System.String)">
+            <summary>
+            获取默认值
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.TextHelper.GetSubString(System.String,System.Int32,System.Boolean)">
+            <summary>
+            截取指定长度的字符串
+            </summary>
+            <param name="value"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.TextHelper.SplitToArray``1(System.String,System.Char)">
+            <summary>
+            字符串转指定类型数组
+            </summary>
+            <param name="value"></param>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsNumber(System.String)">
+            <summary>
+            验证输入字符串为带小数点正数
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsNumberic(System.String)">
+            <summary>
+            验证输入字符串为带小数点正负数
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsTel(System.String)">
+            <summary>
+            验证中国电话格式是否有效，格式010-85849685
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsPhone(System.String)">
+            <summary>
+            验证输入字符串为电话号码
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsFax(System.String)">
+            <summary>
+            验证是否是有效传真号码
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsMobile(System.String)">
+            <summary>
+            验证手机号是否合法 号段为13,14,15,16,17,18,19  0，86开头将自动识别
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsIDCard(System.String)">
+            <summary>
+            验证身份证是否有效
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsIDCard18(System.String)">
+            <summary>
+            验证输入字符串为18位的身份证号码
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsIDCard15(System.String)">
+            <summary>
+            验证输入字符串为15位的身份证号码
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsEmail(System.String)">
+            <summary>
+            验证是否是有效邮箱地址
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsOnlyChinese(System.String)">
+            <summary>
+            验证是否只含有汉字
+            </summary>
+            <param name="strln">输入字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsBadString(System.String)">
+            <summary>
+            是否有多余的字符 防止SQL注入
+            </summary>
+            <param name="str">输入字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsNzx(System.String)">
+            <summary>
+            是否由数字、26个英文字母或者下划线組成的字串 
+            </summary>
+            <param name="str">输入字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsSzzmChinese(System.String)">
+            <summary>
+            由数字、26个英文字母、汉字組成的字串
+            </summary>
+            <param name="str">输入字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsSzzm(System.String)">
+            <summary>
+            是否由数字、26个英文字母組成的字串
+            </summary>
+            <param name="str">输入字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsPostCode(System.String)">
+            <summary>
+            验证输入字符串为邮政编码
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.CheckLength(System.String,System.Int32)">
+            <summary>
+            检查对象的输入长度
+            </summary>
+            <param name="str">输入字符</param>
+            <param name="length">指定的长度</param>
+            <returns>false 太长，true -太短</returns>
+        </member>
+        <member name="M:SunRise.HOSP.MONITOR.Util.ValidatorHelper.IsDateTime(System.String)">
+            <summary>
+            判断用户输入是否为日期
+            </summary>
+            <param name="str">输入字符</param>
+            <returns>返回一个bool类型的值</returns>
+            <remarks>
+            可判断格式如下（其中-可替换为/，不影响验证)
+            YYYY | YYYY-MM | YYYY-MM-DD | YYYY-MM-DD HH:MM:SS | YYYY-MM-DD HH:MM:SS.FFF
+            </remarks>
+        </member>
+    </members>
+</doc>
