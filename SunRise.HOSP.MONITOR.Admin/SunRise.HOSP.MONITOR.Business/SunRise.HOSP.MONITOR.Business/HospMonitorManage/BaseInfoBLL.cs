@@ -153,10 +153,15 @@ namespace SunRise.HOSP.MONITOR.Business.HospMonitorManage
         /// <returns></returns>
         private async Task<string> ComprehensiveOper(BaseInfoViewModel entity)
         {
-            if (entity == null || entity.sId == null)
+            //if (entity == null || entity.sId == null)
+            //{
+            //    return "身份证不能为空";
+            //}
+            if (!ValidatorHelper.IsIDCard(entity.sId??""))
             {
-                return "身份证不能为空";
+                return "身份证号码有误";
             }
+         
             if (!System.Enum.IsDefined(typeof(nTypeEnum), entity.nType))
             {
                 return $"人员类型有误";
