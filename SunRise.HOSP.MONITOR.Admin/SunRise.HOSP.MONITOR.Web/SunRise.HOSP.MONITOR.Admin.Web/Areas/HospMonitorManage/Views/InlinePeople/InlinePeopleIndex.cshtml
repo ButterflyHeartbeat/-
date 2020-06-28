@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="btn-group-sm hidden-xs" id="toolbar">
-            <a id="btnAdd" class="btn btn-success" onclick="showSaveForm(true)"><i class="fa fa-plus"></i> 登记</a>
+            <a id="btnAdd" class="btn btn-success" onclick="showSaveForm(true)"><i class="fa fa-plus"></i> 患者登记</a>
             @*<a id="btnEdit" class="btn btn-primary disabled" onclick="showSaveForm(false)"><i class="fa fa-edit"></i>查看详情</a>*@
             <a id="btnDelete" class="btn btn-danger disabled" onclick="deleteForm()"><i class="fa fa-remove"></i> 注销</a>
         </div>
@@ -62,7 +62,6 @@
     function initGrid() {
         //var queryUrl = '@Url.Content("~/HospMonitorManage/InlinePeople/GetPageListJson")';
         var queryUrl = '@Url.Content("~/HospMonitorManage/InlinePeople/GetInLineDetailJson")';
-        var ntype = '';
         $('#gridTable').ysTable({
             url: queryUrl,
             columns: [
@@ -74,7 +73,6 @@
                      field: 'nType', title: '人员类型',
                     formatter: function (value, row, index) {
                         if (value == "@nTypeEnum.Patient.ParseToInt()") {
-                            ntype = 'patient';
                             return '<span class="badge badge-danger">' + "@nTypeEnum.Patient.GetDescription()" + '</span>';
                         } else if (value == "@nTypeEnum.Chaperon.ParseToInt()") {
                             return '<span class="badge badge-warning">' + "@nTypeEnum.Chaperon.GetDescription()" + '</span>';
@@ -92,20 +90,35 @@
                 {
                     field: 'sPatientId', title:'陪护/探访对象',
                     formatter: function (value, row, index) {
-                        if (ntype == "patient") {
+                        if (row.nType == "@nTypeEnum.Patient.ParseToInt()") {
                             value = '';
-                            ntype = '';
                         }
                           return value;
                     }
                 },
                 {
-                    title: '增加陪护/访客',
+                    title: '增加陪护',
                     align: 'center',
                     formatter: function (value, row, index) {
-                        var actions = [];
-                        actions.push('<a class="btn btn-warning btn-xs" href="#" onclick="showBDForm(\'' + row.sId + '\')"><i class="fa fa-key"></i>添加</a>');
-                        return actions.join('');
+                        if (row.nType == "@nTypeEnum.Patient.ParseToInt()") {
+                            var actions = [];
+                            actions.push('<a class="btn btn-warning btn-xs" href="#" onclick="showBDForm(\'' + row.sId + '\',\'' + 1 + '\')"><i class="fa fa-key"></i>添加</a>');
+                            return actions.join('');
+                        }
+                        return '';
+                    }
+                },
+                {
+                    title: '增加访客',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                         if (row.nType == "@nTypeEnum.Patient.ParseToInt()") {
+                            var actions = [];
+                            actions.push('<a class="btn btn-warning btn-xs" href="#" onclick="showBDForm(\'' + row.sId + '\',\'' + 2 + '\')"><i class="fa fa-key"></i>添加</a>');
+                            return actions.join('');
+                        }
+                        return '';
+
                     }
                 }
 
@@ -116,32 +129,32 @@
                         var queryString = $('#searchDiv').getWebControls(pagination);
                         return queryString;
                     }
-                });
+        });
+        //ntype = "";
     }
 
-    //为住院患者添加 陪护/访客
-    function showBDForm(id) {
-        showSaveForm(false);
-    }
+
 
     function searchGrid() {
         $('#gridTable').ysTable('search');
         resetToolbarStatus();
     }
-     function showSaveForm(bAdd) {
-        var id = 0;
-        if (!bAdd) {
-            var selectedRow = $('#gridTable').bootstrapTable('getSelections');
-            if (!ys.checkRowEdit(selectedRow)) {
-                return;
-            }
-            else {
-                id = selectedRow[0].Id;
-            }
-        }
+
+    //为住院患者添加 陪护/访客
+    function showBDForm(sId,ntype) {
+        //var selectedRow = $('#gridTable').bootstrapTable('getSelections');
+        //if (!ys.checkRowEdit(selectedRow)) {
+        //    return;
+        //}
+        //else {
+        //   var id = selectedRow[0].sId;
+        //    if (id != sId) {
+        //        return;
+        //    }
+        //}
         ys.openDialog({
             title: '添加',
-            content: '@Url.Content("~/HospMonitorManage/InlinePeople/InlinePeopleForm")' + '?id=' + id,
+            content: '@Url.Content("~/HospMonitorManage/InlinePeople/InlineAVForm")' + '?id=' + sId + '&ntype='+ntype,
             width: '768px',
             height: '550px',
             callback: function (index, layero) {
@@ -150,7 +163,7 @@
             }
         });
     }
-    @*function showSaveForm(bAdd) {
+    function showSaveForm(bAdd) {
         var id = 0;
         if (!bAdd) {
             var selectedRow = $('#gridTable').bootstrapTable('getSelections');
@@ -171,7 +184,7 @@
                 iframeWin.saveForm(index);
             }
         });
-    }*@
+    }
 
     function deleteForm() {
         var selectedRow = $('#gridTable').bootstrapTable('getSelections');

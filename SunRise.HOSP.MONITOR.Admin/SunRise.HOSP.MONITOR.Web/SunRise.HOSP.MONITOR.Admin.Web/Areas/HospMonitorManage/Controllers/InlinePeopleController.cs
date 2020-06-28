@@ -37,6 +37,10 @@ namespace SunRise.HOSP.MONITOR.Admin.Web.Areas.HospMonitorManage.Controllers
         {
             return View();
         }
+        public ActionResult InlineAVForm()
+        {
+            return View();
+        }
         #endregion
 
         #region 获取数据
