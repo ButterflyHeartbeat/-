@@ -4,12 +4,11 @@
         <name>SunRise.HOSP.MONITOR.Admin.WebApi</name>
     </assembly>
     <members>
-        <member name="M:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.HospMontorController.QueryInPatList(System.String,System.String)">
+        <member name="M:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.HospMontorController.QueryInPatList(SunRise.HOSP.MONITOR.Util.Model.ParameterIn)">
             <summary>
             获取住院患者数据
             </summary>
-            <param name="sId"></param>
-            <param name="sName"></param>
+            <param name="parameterIn"></param>
             <returns></returns>
         </member>
         <member name="M:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.HospMontorController.Register(SunRise.HOSP.MONITOR.Entity.HospMonitorManage.BaseInfoViewModel)">
@@ -19,11 +18,11 @@
             <param name="baseInfoViewModel"></param>
             <returns></returns>
         </member>
-        <member name="M:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.HospMontorController.Authentication(System.String)">
+        <member name="M:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.HospMontorController.Authentication(SunRise.HOSP.MONITOR.Util.Model.ParameterIn)">
             <summary>
             人员通过认证
             </summary>
-            <param name="sId"></param>
+            <param name="parameterIn"></param>
             <returns></returns>
         </member>
         <member name="T:SunRise.HOSP.MONITOR.Admin.WebApi.Controllers.AuthorizeFilterAttribute">

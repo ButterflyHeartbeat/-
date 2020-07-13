@@ -25,17 +25,16 @@ namespace SunRise.HOSP.MONITOR.Admin.WebApi.Controllers
         /// <summary>
         /// 获取住院患者数据
         /// </summary>
-        /// <param name="sId"></param>
-        /// <param name="sName"></param>
+        /// <param name="parameterIn"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<HospMonData<List<HospMonitorInLinePeopleViewModel>>> QueryInPatList(string sId, string sName)
+        public async Task<HospMonData<List<HospMonitorInLinePeopleViewModel>>> QueryInPatList([FromBody] ParameterIn parameterIn)
         {
             HospMonData<List<HospMonitorInLinePeopleViewModel>> hospMonData = new HospMonData<List<HospMonitorInLinePeopleViewModel>>();
             var data = await inLineBLL.GetInLineDetailsList(new Model.Param.HospMonitorManage.InlinePeopleListParam
             {
-                sId = sId,
-                sName = sName
+                sId = parameterIn.sId,
+                sName = parameterIn.sName
             });
             hospMonData.Code = data.Tag;
             hospMonData.Message = data.Message;
@@ -51,7 +50,7 @@ namespace SunRise.HOSP.MONITOR.Admin.WebApi.Controllers
         [HttpPost]
         public async Task<HospMonData> Register([FromBody]BaseInfoViewModel baseInfoViewModel)
         {
-           var AutReturn=  await this.Authentication(baseInfoViewModel?.sId);
+           var AutReturn=  await this.Authentication(new ParameterIn { sId= baseInfoViewModel?.sId });
             if (AutReturn.Code==00)
             {
                 HospMonData hospMonData = new HospMonData();
@@ -66,15 +65,15 @@ namespace SunRise.HOSP.MONITOR.Admin.WebApi.Controllers
         /// <summary>
         /// 人员通过认证
         /// </summary>
-        /// <param name="sId"></param>
+        /// <param name="parameterIn"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<HospMonData> Authentication(string sId)
+        public async Task<HospMonData> Authentication([FromBody] ParameterIn parameterIn)
         {
             HospMonData hospMonData = new HospMonData();
             var data = await passReBLL.SaveForm(new PassRecordEntity
             {
-                sId = sId
+                sId = parameterIn.sId
             },"webapi");
             hospMonData.Code = data.Tag;
             hospMonData.Message = data.Message;
@@ -105,6 +104,7 @@ namespace SunRise.HOSP.MONITOR.Admin.WebApi.Controllers
 
         //}
     }
+
 
 
 

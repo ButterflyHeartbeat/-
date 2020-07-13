@@ -23,4 +23,11 @@ namespace SunRise.HOSP.MONITOR.Util.Model
     {
         public T Data { get; set; }
     }
+
+
+    public class ParameterIn
+    {
+        public string sId { get; set; }
+        public string sName { get; set; }
+    }
 }

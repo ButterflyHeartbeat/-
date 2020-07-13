@@ -67,27 +67,52 @@ namespace SunRise.HOSP.MONITOR.Business.HospMonitorManage
                 sName = param.sName
             };
             List<BaseInfoEntity> baseInfoEntities = await baseInfoService.GetList(baseInfoListParam);
-            obj.Data = (from inline in inlinePeopleEntities
-                        join baseInfo in baseInfoEntities on inline.sId equals baseInfo.sId into InLineDetails
-                        from details in InLineDetails.DefaultIfEmpty()
-                        select new HospMonitorInLinePeopleViewModel
-                        {
-                            Id = inline.Id.ToString(),
-                            sId = details?.sId,
-                            nType = inline.nType,
-                            dtCheckIn = inline.dtCheckIn,
-                            sPatientId = inline.sPatientId,
-                            sName = details?.sName,
-                            sPhone = details?.sPhone,
-                            sAddress = details?.sAddress,
-                            sBedNo = details?.sBedNo,
-                            sArea = details?.sArea,
-                            sDoc = details?.sDoc,
-                            sSex = details?.sSex,
-                            sAge = details?.sAge,
-                            sRemarks = details?.sRemarks,
-                            sExtend = details?.sExtend
-                        }).ToList();
+            #region 左外连
+            //obj.Data = (from inline in inlinePeopleEntities
+            //            join baseInfo in baseInfoEntities on inline.sId equals baseInfo.sId into InLineDetails
+            //            from details in InLineDetails.DefaultIfEmpty()
+            //            select new HospMonitorInLinePeopleViewModel
+            //            {
+            //                Id = inline.Id.ToString(),
+            //                sId = details?.sId,
+            //                nType = inline.nType,
+            //                dtCheckIn = inline.dtCheckIn,
+            //                sPatientId = inline.sPatientId,
+            //                sName = details?.sName,
+            //                sPhone = details?.sPhone,
+            //                sAddress = details?.sAddress,
+            //                sBedNo = details?.sBedNo,
+            //                sArea = details?.sArea,
+            //                sDoc = details?.sDoc,
+            //                sSex = details?.sSex,
+            //                sAge = details?.sAge,
+            //                sRemarks = details?.sRemarks,
+            //                sExtend = details?.sExtend
+            //            }).ToList();
+            #endregion
+            #region 内联
+            obj.Data=
+            (from inline in inlinePeopleEntities
+            join baseInfo in baseInfoEntities on inline.sId equals baseInfo.sId 
+            select new HospMonitorInLinePeopleViewModel
+            {
+                Id = inline.Id.ToString(),
+                sId = inline?.sId,
+                nType = inline.nType,
+                dtCheckIn = inline.dtCheckIn,
+                sPatientId = inline.sPatientId,
+                sName = baseInfo?.sName,
+                sPhone = baseInfo?.sPhone,
+                sAddress = baseInfo?.sAddress,
+                sBedNo = baseInfo?.sBedNo,
+                sArea = baseInfo?.sArea,
+                sDoc = baseInfo?.sDoc,
+                sSex = baseInfo?.sSex,
+                sAge = baseInfo?.sAge,
+                sRemarks = baseInfo?.sRemarks,
+                sExtend = baseInfo?.sExtend
+            }).ToList();
+            #endregion      
             obj.Total = pagination?.TotalCount ?? 0;
             obj.Tag = 1;
             return obj;
